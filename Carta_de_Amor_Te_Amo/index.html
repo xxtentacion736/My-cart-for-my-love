@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+<style>
+  /* ESPACIO PARA LA CARTA */
+.letter-section {
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* RECUADRO DE LA CARTA */
+.letter-card {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        145deg,
+        #fff8fa,
+        #ffe6ed
+    );
+
+    border: 2px solid #ffb6c9;
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(255, 51, 102, 0.18);
+
+    color: #613744;
+    text-align: center;
+}
+
+/* DECORACIÓN SUPERIOR */
+.letter-decoration {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.letter-card h2 {
+    color: #e63969;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+/* TEXTO DE LA CARTA */
+.letter-text {
+    text-align: left;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.letter-text p {
+    margin-bottom: 20px;
+}
+
+/* CORAZÓN INFERIOR */
+.letter-heart {
+    font-size: 30px;
+    margin-top: 15px;
+    animation: latido 1.3s infinite;
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 600px) {
+    .letter-card {
+        padding: 25px 20px;
+    }
+
+    .letter-card h2 {
+        font-size: 24px;
+    }
+
+    .letter-text {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif}
+body{
+  overflow-x:hidden;
+  background:radial-gradient(circle at top,#3b0010,#120006 55%,#050005);
+  color:white;
+}
+.screen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  text-align:center;
+}
+.hidden{display:none!important}
+
+/* Corazón hecho con la frase */
+.heart{
+  width:min(92vw,760px);
+  height:min(78vh,650px);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.heart-text{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:#ff1744;
+  font-size:clamp(8px,1.3vw,15px);
+  line-height:.82;
+  letter-spacing:0;
+  white-space:pre;
+  text-shadow:0 0 7px #ff1744,0 0 18px rgba(255,23,68,.75);
+  animation:pulse 1.8s infinite;
+}
+.center-message{
+  position:absolute;
+  z-index:2;
+  font-size:clamp(30px,6vw,65px);
+  font-weight:bold;
+  color:#fff;
+  text-shadow:0 0 10px #ff1744,0 0 25px #ff1744;
+  pointer-events:none;
+}
+@keyframes pulse{
+  50%{transform:scale(1.025)}
+}
+
+.start-btn,.close-btn{
+  border:0;
+  border-radius:999px;
+  padding:13px 28px;
+  background:#ff1744;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 0 18px rgba(255,23,68,.65);
+  transition:.25s;
+}
+.start-btn:hover,.close-btn:hover{transform:scale(1.06);background:#ff3158}
+
+/* Sobre */
+.envelope-wrap{perspective:1000px}
+.envelope{
+  width:min(88vw,430px);
+  height:280px;
+  position:relative;
+  margin:auto;
+  cursor:pointer;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,.5));
+}
+.env-back{
+  position:absolute;inset:0;
+  background:#b31235;
+  border-radius:8px;
+  overflow:hidden;
+}
+.env-front{
+  position:absolute;inset:0;
+  background:#d81b45;
+  clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
+  z-index:4;
+  border-radius:8px;
+}
+.flap{
+  position:absolute;left:0;top:0;width:100%;height:70%;
+  background:#ef2b53;
+  clip-path:polygon(0 0,100% 0,50% 72%);
+  transform-origin:top;
+  transition:1s ease;
+  z-index:5;
+}
+.letter{
+  position:absolute;
+  left:7%;width:86%;height:86%;
+  top:8%;
+  background:#fff8f3;
+  color:#5a1421;
+  border-radius:5px;
+  padding:25px 18px;
+  z-index:2;
+  transition:1s ease;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+.letter h2{margin:10px 0;color:#d81b45}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .letter{transform:translateY(-180px);z-index:6}
+
+.hint{margin-top:28px;opacity:.8}
+
+/* Galería */
+.gallery-screen{
+  display:block;
+  padding:35px 18px 60px;
+}
+.gallery-title{
+  font-size:clamp(30px,6vw,58px);
+  color:#ff4164;
+  text-shadow:0 0 15px #ff1744;
+  margin:10px 0;
+}
+.subtitle{opacity:.85;margin-bottom:30px}
+.gallery{
+  max-width:1050px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+.photo-card{
+  background:rgba(255,255,255,.08);
+  padding:10px;
+  border-radius:18px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  animation:appear .7s both;
+}
+.photo-card img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
+}
+.caption{
+  padding:12px 5px 5px;
+  color:#ffd7df;
+}
+@keyframes appear{
+  from{opacity:0;transform:translateY(30px) scale(.96)}
+  to{opacity:1;transform:none}
+}
+.note{
+  max-width:760px;
+  margin:35px auto 0;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+}
+</style>
+</head>
+<body>
+
+<!-- PANTALLA 1 -->
+<section id="intro" class="screen">
+  <div>
+    <div class="heart">
+      <pre id="heartText" class="heart-text"></pre>
+      <div class="center-message">TE AMO ❤️</div>
+    </div>
+    <button class="start-btn" onclick="showEnvelope()">Tengo algo para ti 💌</button>
+  </div>
+</section>
+
+<!-- PANTALLA 2 -->
+<section id="envelopeScreen" class="screen hidden">
+  <div>
+    <div id="envelope" class="envelope" onclick="openEnvelope()">
+      <div class="env-back"></div>
+      <div class="letter">
+        <h2>Para ti ❤️</h2>
+        <p>Hay recuerdos que merecen quedarse para siempre...</p>
+        <p><b>Ábreme cuando estés lista/o 💕</b></p>
+      </div>
+      <div class="flap"></div>
+      <div class="env-front"></div>
+    </div>
+    <div class="hint">Haz clic en el sobre para abrirlo</div>
+    <br>
+    <button class="start-btn" onclick="openEnvelope()">Abrir 💌</button>
+  </div>
+</section>
+
+<!-- PANTALLA 3 -->
+<section id="galleryScreen" class="gallery-screen hidden">
+  <h1 class="gallery-title">Nuestros recuerdos ❤️</h1>
+  <p class="subtitle">Cada foto guarda un pedacito de lo que siento por ti.</p>
+
+  <div class="gallery">
+    <!-- FOTO 1 -->
+    <div class="photo-card">
+      <img src="de.jpeg" alt="Recuerdo 1">
+      <div class="caption">Un recuerdo que quiero guardar para siempre ❤️</div>
+    </div>
+
+    <!-- FOTO 2 -->
+    <div class="photo-card">
+      <img src="j.jpeg" alt="Recuerdo 2">
+      <div class="caption">Porque contigo cualquier momento es especial 💕</div>
+    </div>
+
+  <!-- FOTO 3 -->
+    <div class="photo-card">
+      <img src="I.jpeg" alt="Recuerdo 3">
+      <div class="caption">Cada instante contigo es un tesoro 💖</div>
+    </div>
+
+    <!-- FOTO 4 -->
+    <div class="photo-card">
+      <img src="r.jpeg" alt="Recuerdo 4">
+      <div class="caption">Gracias por ser parte de mi vida ❤️</div>
+    </div> 
+
+<!-- FOTO 5 -->
+<div class="photo-card">
+    <img src="e.jpeg">
+     <div class="caption"> Contigo quiero seguir coleccionando momentos inolvidables. 📸</div>
+</div>
+<!-- FOTO 6 -->
+<div class="photo-card">
+    <img src="y.jpeg">
+     <div class="caption">Gracias por cada abrazo, cada sonrisa y cada momento. ❤️</div>
+</div>
+ <!-- CARTA ESPECIAL -->
+<section class="letter-section">
+    <div class="letter-card">
+        <div class="letter-decoration">💌</div>
+
+        <h2>Unas palabras para ti</h2>
+
+        <div class="letter-text">
+            <p>
+                Me siento muy feliz y conmocionado por el detalle,
+                es algo que nunca había recibido antes.
+            </p>
+
+            <p>
+                Saber que te tomaste el tiempo para darme un detalle
+                de ese tipo es algo que aprecio mucho, es un sentimiento
+                que nunca había experimentado antes, pero saber que lo
+                provocaste tú lo hace especial.
+            </p>
+
+            <p>
+                Es un detalle que créeme de verdad yo valoro muchísimo,
+                son sentimientos que me dejaron sin saber qué decir o
+                qué pensar, pero siento bonito porque sé que es un
+                sentimiento que sólo tengo contigo.
+            </p>
+        </div>
+
+        <div class="letter-heart">❤️</div>
+    </div>
+
+  <div class="note">
+    <h2>Y esto apenas comienza... 💖</h2>
+  
+    <button class="close-btn" onclick="location.reload()">Volver al inicio ❤️</button>
+  </div>
+</section>
+
+<script>
+function makeHeart(){
+  const pre = document.getElementById("heartText");
+  let result = "";
+  const phrase = "TE AMO ";
+
+  // Corazón matemático formado únicamente por la frase "TE AMO"
+  for(let y = 1.35; y >= -1.15; y -= 0.055){
+    for(let x = -1.55; x <= 1.55; x += 0.032){
+      const a = x*x + y*y - 1;
+      const inside = a*a*a - x*x*y*y*y <= 0;
+      if(inside) result += phrase[Math.floor(Math.random()*phrase.length)];
+      else result += " ";
+    }
+    result += "\n";
+  }
+  pre.textContent = result;
+}
+makeHeart();
+
+function showEnvelope(){
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("envelopeScreen").classList.remove("hidden");
+}
+
+function openEnvelope(){
+  const env = document.getElementById("envelope");
+  env.classList.add("open");
+  setTimeout(()=>{
+    document.getElementById("envelopeScreen").classList.add("hidden");
+    document.getElementById("galleryScreen").classList.remove("hidden");
+    window.scrollTo(0,0);
+  },1400);
+}
+</script>
+</body>
+</html>
